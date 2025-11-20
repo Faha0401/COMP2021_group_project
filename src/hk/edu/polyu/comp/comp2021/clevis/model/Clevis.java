@@ -1,8 +1,8 @@
 package hk.edu.polyu.comp.comp2021.clevis.model;
-import java.util.*;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.FileWriter;
+import java.util.*;
 
 
 
@@ -16,39 +16,15 @@ feel free to add more
 
 public class Clevis {
     List<Shape> Shapes = new ArrayList<>();
-    static int zCount = 0;
     static int index;
     static int commandindex = 0;
 
-    class Logger {
-        private PrintWriter htmlWriter;
-        private PrintWriter txtWriter;
-
-        public Logger(String htmlPath, String txtPath) {
-            try {
-                htmlWriter = new PrintWriter(new FileWriter(htmlPath, true));
-                txtWriter = new PrintWriter(new FileWriter(txtPath, true));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        public void logCommand(int index, String command) {
-            htmlWriter.println("<tr><td>" + index + "</td><td>" + command + "</td></tr>");
-            txtWriter.println(command);
-            htmlWriter.flush();
-            txtWriter.flush();
-        }
-
-        public void close() {
-            htmlWriter.close();
-            txtWriter.close();
-        }
-    }
-
-
     public void delete(String name) {
-        Shapes.removeIf(s -> s.name.equals(name));
+        if (Shapes.removeIf(s -> s.name.equals(name))) {
+            System.out.println("Shape " + name + " has been deleted.");
+        } else {
+            System.out.println("Shape " + name + " is not found.");
+        }
     }
 
     public boolean ExistName(String name) {
@@ -93,19 +69,24 @@ public class Clevis {
         return values;
     }
     private Boolean shapeAt(double x, double y, Shape e){
-        return x > e.boundingbox[0] - 0.05 && y > e.boundingbox[1] - 0.05
-                && x < e.boundingbox[3]+e.boundingbox[0] + 0.05 && y < e.boundingbox[4]+e.boundingbox[1] + 0.05;
+        e.initboundingbox();
+        return (x > e.boundingbox[0] - 0.05 && x < e.boundingbox[0] + 0.05 && y < e.boundingbox[1] + 0.05 && y > e.boundingbox[1] + e.boundingbox[3] - 0.05) ||
+                (x > e.boundingbox[0] + e.boundingbox[2] - 0.05 && x < e.boundingbox[0] + e.boundingbox[2] + 0.05 && y < e.boundingbox[1] + 0.05 && y > e.boundingbox[1] + e.boundingbox[3] - 0.05) ||
+                (y > e.boundingbox[1] - 0.05 && y < e.boundingbox[1] + 0.05 && x > e.boundingbox[0] - 0.05 && x < e.boundingbox[0] + e.boundingbox[2] + 0.05) ||
+                (y > e.boundingbox[1] + e.boundingbox[3] - 0.05 && y < e.boundingbox[1] + e.boundingbox[3] + 0.05 && x > e.boundingbox[0] - 0.05 && x < e.boundingbox[0] + e.boundingbox[2] + 0.05);
     }
 
     public Clevis() {
         System.out.println("Welcome to our clevis: ");
+        // Use a single Scanner for System.in and guard calls with hasNextLine()
+        Scanner scanner = new Scanner(System.in);
         label:
         while (true) { //using a variable here since im using try and catch in input scanning
             String operation;
             Logger logger = new Logger("log.html", "log.txt");
             try { //looking for a better catch implementation
                 System.out.println("Please enter your operation: ");
-                Scanner scanner = new Scanner(System.in);
+                if (!scanner.hasNextLine()) break; // avoid NoSuchElementException when stdin is exhausted (tests)
                 String line = scanner.nextLine();
                 logger.logCommand(commandindex, line);
                 String[] parts = line.trim().split("\\s+");
@@ -293,228 +274,6 @@ public class Clevis {
             } finally{
                 logger.close();
             }
-        }
-    }
-
-    abstract class Shape {
-        String name;
-        int zIndex;
-        double[] boundingbox = new double[4];
-
-        Shape(String name) {
-            this.name = name;
-            zIndex = zCount++;
-        }
-        public abstract void list();
-        public abstract void move(double dx, double dy);
-        public abstract void boundingbox();
-        public abstract void initboundingbox();
-        public void boundingbox(double x, double y, double width, double height){
-            this.boundingbox[0] = x;
-            this.boundingbox[1] = y;
-            this.boundingbox[2] = width;
-            this.boundingbox[3] = height;
-        }
-        public abstract double getx();
-        public abstract double gety();
-    }
-
-    class Rectangle extends Shape {
-        double x, y, width, height;
-        public final static int EXPECTED_VALUES = 4;
-
-        public Rectangle(String n, double x, double y, double width, double height) {
-            super(n);
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-        }
-
-        public double getx(){
-            return this.x;
-        }
-        public double gety(){
-            return this.y;
-        }
-
-        public void move(double dx, double dy){
-            this.x += dx;
-            this.y += dy;
-        }
-        public void list() {
-            System.out.println("Rectangle " + this.name + " x:" + x + " y:" + y + " width:" + width + " height:" + height);
-        }
-        public void initboundingbox(){
-            super.boundingbox(x,y,width,height);
-        }
-        public void boundingbox() {
-            initboundingbox();
-            System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height" + String.format("%.2f", boundingbox[3]));
-        }
-    }
-
-    class Line extends Shape {
-        double x1, y1, x2, y2;
-        public final static int EXPECTED_VALUES = 4;
-
-        public Line(String n, double x1, double y1, double x2, double y2) {
-            super(n);
-            this.x1 = x1;
-            this.x2 = x2;
-            this.y1 = y1;
-            this.y2 = y2;
-        }
-
-        public double getx(){
-            return this.x1;
-        }
-        public double gety(){
-            return this.y1;
-        }
-
-
-        public void move(double dx, double dy){
-            this.x1 += dx;
-            this.y1 += dy;
-            this.x2 += dx;
-            this.y2 += dy;
-        }
-
-        public void list() {
-            System.out.println("Line " + this.name + " x1:" + x1 + " y1:" + y1 + " x1:" + x2 + " y2:" + y2);
-        }
-        public void initboundingbox(){
-            super.boundingbox(x1,y1,x2-x1,y2-y1);
-        }
-        public void boundingbox() {
-            initboundingbox();
-            System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height" + String.format("%.2f", boundingbox[3]));        }
-
-
-    }
-
-    class Circle extends Shape {
-        double x, y, r;
-        public final static int EXPECTED_VALUES = 3;
-
-        public Circle(String n, double x, double y, double r) {
-            super(n);
-            this.x = x;
-            this.y = y;
-            this.r = r;
-        }
-
-        public double getx(){
-            return this.x;
-        }
-        public double gety(){
-            return this.y;
-        }
-
-        public void move(double dx, double dy){
-            this.x += dx;
-            this.y += dy;
-        }
-        public void list() {
-            System.out.println("Circle " + this.name + " x:" + x + " y:" + y + " radius:" + r);
-        }
-        public void initboundingbox(){
-            super.boundingbox(x-r,y-r,2*r,2*r);
-        }
-        public void boundingbox() {
-            initboundingbox();
-            System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height" + String.format("%.2f", boundingbox[3]));        }
-    }
-
-    class Square extends Shape {
-        double x, y, l;
-        public final static int EXPECTED_VALUES = 3;
-
-        public Square(String n, double x, double y, double l) {
-            super(n);
-            this.x = x;
-            this.y = y;
-            this.l = l;
-        }
-
-        public double getx(){
-            return this.x;
-        }
-        public double gety(){
-            return this.y;
-        }
-
-
-        public void move(double dx, double dy){
-            this.x += dx;
-            this.y += dy;
-        }
-        public void list() {
-            System.out.println("Square " + this.name + " x:" + x + " y:" + y + " side width:" + l);
-        }
-        public void initboundingbox(){
-            super.boundingbox(x,y,l,l);
-           }
-        public void boundingbox() {
-            initboundingbox();
-            System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height" + String.format("%.2f", boundingbox[3]));        }
-    }
-
-    class GroupedShape extends Shape{
-        List<Shape> group;
-        public GroupedShape(String n) {
-            super(n);
-            this.group = new ArrayList<>();
-        }
-        private void add(Shape addshape){
-            if(addshape instanceof GroupedShape){
-                group.addAll(((GroupedShape) addshape).group);
-            }else{
-                group.add(addshape);
-            }
-        }
-        public double getx(){
-            initboundingbox();
-            return this.boundingbox[0];
-        }
-        public double gety(){
-            initboundingbox();
-            return this.boundingbox[1];
-        }
-
-
-        public void list(){
-            System.out.println("Group shape :" + name);
-
-
-            for (Shape shape : group) {
-                System.out.print("\t");
-                shape.list();
-            }
-        }
-        public void move(double dx, double dy){
-            for(Shape e : group){
-                e.move(dx, dy);
-            }
-        }
-        public void boundingbox(){
-            initboundingbox();
-            for (Shape s : group){
-                this.boundingbox[0] = Math.min(this.boundingbox[0], s.boundingbox[0]);
-                this.boundingbox[1] = Math.min(this.boundingbox[1], s.boundingbox[1]);
-                this.boundingbox[2] = Math.max(this.boundingbox[2], s.boundingbox[2]);
-                this.boundingbox[3] = Math.max(this.boundingbox[3], s.boundingbox[3]);
-            }
-            System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height" + String.format("%.2f", boundingbox[0]));
-        }
-
-        public void initboundingbox() {
-            for (Shape s : group){s.initboundingbox();}
-            this.boundingbox[0] = Integer.MAX_VALUE;
-            this.boundingbox[1] = Integer.MAX_VALUE;
-            this.boundingbox[2] = Integer.MIN_VALUE;
-            this.boundingbox[3] = Integer.MIN_VALUE;
         }
     }
 }

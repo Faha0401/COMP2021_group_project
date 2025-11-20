@@ -1,1 +1,43 @@
 circle c 1 2 3
+square s 1 1 2
+move s 3 4
+shapeAt 4 5
+square s1 1 1 2
+move s1 2 3
+shapeAt 3 4
+square s1 1 1 2
+move square 3 4
+move s1 3 4
+shapeAt 4 5
+square s 1 1 2
+move s 3 4
+ShapeAt 4 5
+shapeAt 4 5
+square s 1 1 2
+move s 3 4
+shapeAt 4 5
+shapeAt 5 5
+shapeAt 6 6
+shapeAt 5.5 5.5
+boundingBox s
+shapeAt 5.5 5.5
+shape At 3.95 4.95
+shapeAt 3.95 4.95
+circle c 1 2 3
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
