@@ -33,6 +33,42 @@ public class ClevisTest {
         return baos.toString();
     }
 
+
+    @Test
+    public void testunexpected() throws Exception{
+        String input = String.join("\n", Arrays.asList(
+                "hi",
+                "quit"
+
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Unexpected Command."));
+
+    }
+
+
+    @Test
+    public void testintersect() throws Exception{
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 10 5",
+                "circle c1 5 5 2",
+                "intersect",
+                "intersect r1 c1",
+                "rectangle r2 100 100 10 5",
+                "intersect r1 r2",
+                "quit"
+
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("[Error]: expected 3 values, but got 1."));
+        assertTrue(out.contains("r1 intersect with c1."));
+        assertTrue(out.contains("r1 does not intersect with r2."));//need to pass this
+
+    }
+
+
     @Test
     public void testCreateAndListAll() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -88,4 +124,180 @@ public class ClevisTest {
         assertTrue(out.contains("Shape rA has been deleted."));
         assertTrue(out.contains("Rectangle rB x:3.0 y:3.0 width:2.0 height:2.0"));
     }
+
+    @Test
+    public void testCircleCreationAndListing() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "circle c1 5 5 2",
+                "list c1",
+                "quit"
+        )) + "\n";
+
+        String out = runClevisWithInput(input);
+
+        // Verifies that the creation message is printed
+        assertTrue(out.contains("Circle c1 has been created."));
+        // Verifies that the properties of the circle are listed correctly
+        assertTrue(out.contains("Circle c1 x:5.0 y:5.0 radius:2.0"));
+    }
+
+    @Test
+    public void testMoveCircle() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "circle c1 5 5 2",
+                "move c1 3 3",
+                "list c1",
+                "quit"
+        )) + "\n";
+
+        String out = runClevisWithInput(input);
+
+        // Verifies that the circle has been created
+        assertTrue(out.contains("Circle c1 has been created."));
+        // Verifies that the circle has been moved to the new coordinates
+        assertTrue(out.contains("Shape c1 is moved to (8.00,8.00)."));
+        // Verifies that the properties of the circle reflect the new position
+        assertTrue(out.contains("Circle c1 x:8.0 y:8.0 radius:2.0"));
+    }
+
+    @Test
+    public void testLineCreationAndListing() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "line l1 5 5 2 2",  // Command to create a circle
+                "list l1",          // Command to list the properties of the circle
+                "quit"
+        )) + "\n";
+
+        String out = runClevisWithInput(input);
+
+        // Verifies that the creation message is printed
+        assertTrue(out.contains("Line l1 has been created."));
+        // Verifies that the properties of the circle are listed correctly
+        assertTrue(out.contains("Line l1 x1:5.0 y1:5.0 x1:2.0 y2:2.0"));
+    }
+    @Test
+    public void testMoveLine() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "line l1 5 5 2 2",
+                "move l1 3 4",
+                "list l1",
+                "quit"
+        )) + "\n";
+
+        String out = runClevisWithInput(input);
+
+        // Verifies that the circle has been created
+        assertTrue(out.contains("Line l1 has been created."));
+        // Verifies that the circle has been moved to the new coordinates
+        assertTrue(out.contains("Shape l1 is moved to (8.00,9.00)."));
+        // Verifies that the properties of the circle reflect the new position
+        assertTrue(out.contains("Line l1 x1:8.0 y1:9.0 x1:5.0 y2:6.0"));
+    }
+    @Test
+    public void testSquareCreationAndListing() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "square s1 2 2 5",
+                "list s1",
+                "quit"
+        )) + "\n";
+
+        String out = runClevisWithInput(input);
+
+
+        assertTrue(out.contains("Square s1 has been created."));
+
+        assertTrue(out.contains("Square s1 x:2.0 y:2.0 side width:5.0"));
+    }
+
+    @Test
+    public void testRectangleCreationAndListing() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 5 5 4 4",
+                "list r1",
+                "quit"
+        )) + "\n";
+
+        String out = runClevisWithInput(input);
+
+
+        assertTrue(out.contains("Rectangle r1 has been created."));
+
+        assertTrue(out.contains("Rectangle r1 x:5.0 y:5.0 width:4.0 height:4.0"));
+    }
+
+    @Test
+    public void testMoveRectangle() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 5 5 4 4",
+                "move r1 3 4",
+                "list r1",
+                "quit"
+        )) + "\n";
+
+        String out = runClevisWithInput(input);
+
+
+        assertTrue(out.contains("Rectangle r1 has been created."));
+
+        assertTrue(out.contains("Shape r1 is moved to (8.00,9.00)."));
+        assertTrue(out.contains("Rectangle r1 x:8.0 y:9.0 width:4.0 height:4.0"));
+    }
+
+
+
+
+
+    @Test
+    public void testInitBoundingBox() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "line l1 5 5 2 2",
+                "boundingBox l1",
+                "rectangle r1 0 0 4 3",
+                "boundingBox r1",
+                "circle c1 5 5 2",
+                "boundingBox c1",
+                "square s1 2 2 5",
+                "boundingBox s1",
+
+                "quit"
+        )) + "\n";
+
+        String out = runClevisWithInput(input);
+
+
+        assertTrue(out.contains("Line l1 has been created."));
+        assertTrue(out.contains("Bounding Box: x:5.00 y:5.00 width:-3.00 height-3.00"));
+        assertTrue(out.contains("Rectangle r1 has been created."));
+        assertTrue(out.contains("Bounding Box: x:0.00 y:0.00 width:4.00 height3.00"));
+        assertTrue(out.contains("Circle c1 has been created."));
+        assertTrue(out.contains("Bounding Box: x:3.00 y:3.00 width:4.00 height4.00"));
+        assertTrue(out.contains("Square s1 has been created."));
+        assertTrue(out.contains("Bounding Box: x:2.00 y:2.00 width:5.00 height5.00"));
+
+
+    }
+
+    @Test
+    public void testgroupedshape() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 5 5 4 4",
+                "circle c1 5 5 2",
+                "group g1 r1 c1",
+                "list g1",
+                "move g1 4 5",
+                "quit"
+        )) + "\n";
+
+        String out = runClevisWithInput(input);
+
+
+        assertTrue(out.contains("Group g1 has been created."));
+
+        assertTrue(out.contains("Group shape :g1\n" +
+                "\tRectangle r1 x:5.0 y:5.0 width:4.0 height:4.0\n" +
+                "\tCircle c1 x:5.0 y:5.0 radius:2.0"));
+        assertTrue(out.contains("Shape g1 is moved to (7.00,8.00)."));
+    }
+
+
 }

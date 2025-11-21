@@ -41,3 +41,2401 @@ rectangle r1 0 0 10 5
 circle c1 5 5 2
 listAll
 quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+rectangle r1 1 2 3 4
+shapeAt 1 2
+rectangle r1 1 2 3 4
+listAll
+undo
+rectangle r1 1 2 3 4
+listAll
+undo
+listAll
+circle c 1 2 3
+listAll
+undo
+listAll
+circle c1 1 2 3
+delete c1
+listAll
+undo
+circle c1 1 2 3
+delete
+delete c1
+undo
+listAll
+delete c1
+listAll
+undo
+listAll
+circle c1 1 2 3
+circle c2 1 2 3
+group c1 c2
+group c c1 c2
+listAll
+undo
+listAll
+circle c1 1 2 3
+circle c2 1 2 3
+group c c1 c2
+listAll
+ungroup c
+undo
+circle c1 1 2 3
+circle c2 1 2 3
+group c1 c2
+group c c1 c2
+ungroup
+ungroup c
+redo
+undo
+circle c1 1 2 3
+cricle c2 1 2 3
+group c c1 c2
+listAll
+circle c1 1 2 3
+listAll
+circle c2 1 2 3
+listAll
+group c c1 c2
+listAll
+ungroup c
+listAll
+undo
+circle c1 1 2 3
+circle c2 1 2 3
+group c c1 c2
+listAll
+ungroup c
+undo
+circle c1 1 2 3
+circle c2 1 2 3
+group circle
+group circle c1 c2
+listAll
+ungroup circle
+undo
+listAll
+undo
+undo
+list all
+listAll
+circle c 1 2 3
+move c 1 1
+listAll
+undo
+circle c 1 2 3
+listAll
+move c 1 1
+listAll
+undo
+listAll
+circle c 1 2 3
+listAll
+move c 1 1
+listAll
+undo
+listAll
+circle c 1 2 3
+listAll
+undo
+redo
+listAll
+circle c 1 2 3
+listAll
+undo
+redo
+listAll
+undop
+undo
+redo
+redo
+redo
+redo
+circle c 1 2 3
+]listAll
+listAll
+undo
+redo
+circle c
+circle c 1 2 3
+listAll
+undo
+redo
+redo
+circle c1 1 2 3
+circle c2 1 2 3
+group c c1 c2
+listAll
+move c 1 1
+listAll
+circle c1 1 2 3
+circle c2 1 2 3
+group c c1 c2
+listAll
+move c 1 2
+circle c1 1 2 3
+circle c2 1 2 3
+group c c1 c2
+listAll
+move c 1 1
+listAll
+undo
+redo
+listAll
+circle c 1 2 3
+move c 1 1
+listAll
+undo
+redo
+circle c 1 2 3
+move c 1 1
+listAll
+undo
+listAll
+redo
+listAll
+circle c 1 2 3
+move c 1 1
+undo
+redo
+redo
+redo
+circle c1 1 2 3
+move c1 1 1
+redo
+undo
+redo
+redo
+redo
+redo
+circle c 1 2 3
+listAll
+move c 1 1
+undo
+redo
+redo
+listAll
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+"rectangle r1 5 5 4 4",
+                "circle c1 5 5 2",
+                "group g1 r1 c1",
+                "list g1",
+                "move g1 4 5",rectangle r1 5 5 4 4
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+move g1 4 5
+move g1 1 1
+move g1 5 5
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g r1 c1
+move g 4 5
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g c1 r1
+move g 4 5
+move g 1 1
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle 0 0 10 5
+rectangle r 0 0 10 5
+rectangle r2 100 100 10 5
+listAll
+intersact r r2
+intersect r r2
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+rectangle 0 0 10 5
+rectangle r 0 0 10 5
+rectangle r2 100 100 10 5
+listAll
+intersect r1 r2
+intersect r r2
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+listAll
+boundingBox r2
+
+delete r
+delete r2
+listAll
+rectangle r 0 0 10 5
+rectangle r2 100 100 10 5
+intersect r r2
+delete r
+delete r2
+rectangle r1 0 0 10 5
+circle 5 5 2
+circle c 5 5 2
+listAll
+intersect r1 c
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect r1 r2
+intersect r1 c1
+intersect c1 r1
+rectangle r1 100 100 10 5
+rectangle r2 100 100 10 5
+intersect r1 r2
+rectangle r1 0 0 10 5
+circle c 5 5 2
+intersect r1 c
+rectangle r 0 0 10 5
+circle c 5 5 2
+intersect r c
+boundingBox r
+boundingBox c
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect c1 r1
+boundingBox c1
+boundingBox r1
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect r1 c1
+square s1 1 1 2
+move s1 3 4
+shapeAt 4 5
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+intersect
+intersect r1 c1
+rectangle r2 100 100 10 5
+intersect r1 r2
+quit
+rectangle rA 0 0 2 2
+rectangle rB 3 3 2 2
+group G1 rA rB
+list G1
+ungroup G1
+delete rA
+listAll
+quit
+rectangle r1 5 5 4 4
+move r1 3 4
+list r1
+quit
+square s1 2 2 5
+list s1
+quit
+circle c1 5 5 2
+list c1
+quit
+line l1 5 5 2 2
+move l1 3 4
+list l1
+quit
+line l1 5 5 2 2
+list l1
+quit
+hi
+quit
+line l1 5 5 2 2
+boundingBox l1
+rectangle r1 0 0 4 3
+boundingBox r1
+circle c1 5 5 2
+boundingBox c1
+square s1 2 2 5
+boundingBox s1
+quit
+rectangle r1 5 5 4 4
+circle c1 5 5 2
+group g1 r1 c1
+list g1
+move g1 4 5
+quit
+rectangle r1 5 5 4 4
+list r1
+quit
+circle c1 5 5 2
+move c1 3 3
+list c1
+quit
+rectangle r1 0 0 10 5
+circle c1 5 5 2
+listAll
+quit

@@ -40,14 +40,10 @@ class GroupedShape extends Shape{
             e.move(dx, dy);
         }
     }
+
+
     public void boundingbox(){
         initboundingbox();
-        for (Shape s : group){
-            this.boundingbox[0] = Math.min(this.boundingbox[0], s.boundingbox[0]);
-            this.boundingbox[1] = Math.min(this.boundingbox[1], s.boundingbox[1]);
-            this.boundingbox[2] = Math.max(this.boundingbox[2], s.boundingbox[2]);
-            this.boundingbox[3] = Math.max(this.boundingbox[3], s.boundingbox[3]);
-        }
         System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height" + String.format("%.2f", boundingbox[0]));
     }
 
@@ -57,5 +53,11 @@ class GroupedShape extends Shape{
         this.boundingbox[1] = Integer.MAX_VALUE;
         this.boundingbox[2] = Integer.MIN_VALUE;
         this.boundingbox[3] = Integer.MIN_VALUE;
+        for (Shape s : group){
+            this.boundingbox[0] = Math.min(this.boundingbox[0], s.boundingbox[0]);
+            this.boundingbox[1] = Math.min(this.boundingbox[1], s.boundingbox[1]);
+            this.boundingbox[2] = Math.max(this.boundingbox[2], s.boundingbox[2]);
+            this.boundingbox[3] = Math.max(this.boundingbox[3], s.boundingbox[3]);
+        }
     }
 }
