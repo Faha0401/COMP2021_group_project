@@ -42,10 +42,9 @@ public class ClevisTest {
 
     /**
      * testunexpected method to test handling of unexpected commands in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testunexpected() throws Exception{
+    public void testunexpected(){
         String input = String.join("\n", Arrays.asList(
                 "hi",
                 "quit"
@@ -60,10 +59,9 @@ public class ClevisTest {
 
     /**
      * testintersect method to test the intersect command in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testintersect() throws Exception{
+    public void testintersect(){
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 10 5",
                 "circle c1 5 5 2",
@@ -85,10 +83,9 @@ public class ClevisTest {
 
     /**
      * testCreateAndListAll method to test creating shapes and listing all shapes in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testCreateAndListAll() throws Exception {
+    public void testCreateAndListAll(){
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 10 5",
                 "circle c1 5 5 2",
@@ -105,10 +102,9 @@ public class ClevisTest {
 
     /**
      * testMoveAndShapeAt method to test moving a shape and checking which shape is at a specific point in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testMoveAndShapeAt() throws Exception {
+    public void testMoveAndShapeAt(){
         String input = String.join("\n", Arrays.asList(
                 "square s1 1 1 2",
                 "move s1 3 4",
@@ -124,10 +120,9 @@ public class ClevisTest {
 
     /**
      * testGroupUngroupAndDelete method to test grouping, ungrouping, and deleting shapes in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testGroupUngroupAndDelete() throws Exception {
+    public void testGroupUngroupAndDelete() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle rA 0 0 2 2",
                 "rectangle rB 3 3 2 2",
@@ -153,10 +148,9 @@ public class ClevisTest {
 
     /**
      * testCircleCreationAndListing method to test creating a circle and listing its details in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testCircleCreationAndListing() throws Exception {
+    public void testCircleCreationAndListing() {
         String input = String.join("\n", Arrays.asList(
                 "circle c1 5 5 2",
                 "list c1",
@@ -171,10 +165,9 @@ public class ClevisTest {
 
     /**
      * testMoveCircle method to test moving a circle and listing its updated details in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testMoveCircle() throws Exception {
+    public void testMoveCircle() {
         String input = String.join("\n", Arrays.asList(
                 "circle c1 5 5 2",
                 "move c1 3 3",
@@ -191,10 +184,9 @@ public class ClevisTest {
 
     /**
      * testLineCreationAndListing method to test creating a line and listing its details in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testLineCreationAndListing() throws Exception {
+    public void testLineCreationAndListing() {
         String input = String.join("\n", Arrays.asList(
                 "line l1 5 5 2 2",
                 "list l1",
@@ -210,10 +202,9 @@ public class ClevisTest {
 
     /**
      * testMoveLine method to test moving a line and listing its updated details in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testMoveLine() throws Exception {
+    public void testMoveLine() {
         String input = String.join("\n", Arrays.asList(
                 "line l1 5 5 2 2",
                 "move l1 3 4",
@@ -231,10 +222,9 @@ public class ClevisTest {
 
     /**
      * testSquareCreationAndListing method to test creating a square and listing its details in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testSquareCreationAndListing() throws Exception {
+    public void testSquareCreationAndListing() {
         String input = String.join("\n", Arrays.asList(
                 "square s1 2 2 5",
                 "list s1",
@@ -251,10 +241,9 @@ public class ClevisTest {
 
     /**
      * testMoveSquare method to test moving a square and listing its updated details in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testRectangleCreationAndListing() throws Exception {
+    public void testRectangleCreationAndListing() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 5 5 4 4",
                 "list r1",
@@ -271,10 +260,9 @@ public class ClevisTest {
 
     /**
      * testMoveRectangle method to test moving a rectangle and listing its updated details in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testMoveRectangle() throws Exception {
+    public void testMoveRectangle() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 5 5 4 4",
                 "move r1 3 4",
@@ -297,10 +285,9 @@ public class ClevisTest {
 
     /**
      * testInitBoundingBox method to test initializing bounding boxes for various shapes in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testInitBoundingBox() throws Exception {
+    public void testInitBoundingBox() {
         String input = String.join("\n", Arrays.asList(
                 "line l1 5 5 2 2",
                 "boundingBox l1",
@@ -331,10 +318,9 @@ public class ClevisTest {
 
     /**
      * testgroupedshape method to test grouping shapes and moving the group in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testgroupedshape() throws Exception {
+    public void testgroupedshape() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 5 5 4 4",
                 "circle c1 5 5 2",
@@ -358,10 +344,9 @@ public class ClevisTest {
 
     /**
      * testundoRedoShapeCreation method to test undoing and redoing shape creation in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testUndoshapecreation() throws Exception {
+    public void testUndoshapecreation() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 3 3 3",
@@ -379,10 +364,9 @@ public class ClevisTest {
 
     /**
      * testredoShapeCreation method to test redoing shape creation in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testRedoshapecreation() throws Exception {
+    public void testRedoshapecreation() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 3 3 3",
@@ -400,10 +384,9 @@ public class ClevisTest {
 
     /**
      * testundoShapeDeletion method to test undoing shape deletion in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testundoshapedeletion() throws Exception {
+    public void testundoshapedeletion() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 3 3 3",
@@ -421,10 +404,9 @@ public class ClevisTest {
 
     /**
      * testredoShapeDeletion method to test redoing shape deletion in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testredoshapedeletion() throws Exception {
+    public void testredoshapedeletion() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 3 3 3",
@@ -442,10 +424,9 @@ public class ClevisTest {
 
     /**
      * testundoShapeGrouping method to test undoing shape grouping in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testundoshapegroping() throws Exception {
+    public void testundoshapegroping() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 3 3 3",
@@ -467,10 +448,9 @@ public class ClevisTest {
 
     /**
      * testredoShapeGrouping method to test redoing shape grouping in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testredoshapegroping() throws Exception {
+    public void testredoshapegroping() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 3 3 3",
@@ -492,10 +472,9 @@ public class ClevisTest {
 
     /**
      * testundoShapeUngrouping method to test undoing shape ungrouping in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testundoshapeungroping() throws Exception {
+    public void testundoshapeungroping() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 3 3 3",
@@ -517,10 +496,9 @@ public class ClevisTest {
 
     /**
      * testredoShapeUngrouping method to test redoing shape ungrouping in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testredoshapeungroping() throws Exception {
+    public void testredoshapeungroping() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 3 3 3",
@@ -541,10 +519,9 @@ public class ClevisTest {
 
     /**
      * testundoMoveShape method to test undoing a shape move in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testundomoveshape() throws Exception {
+    public void testundomoveshape() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "move r1 1 1",
@@ -563,10 +540,9 @@ public class ClevisTest {
 
     /**
      * testredoMoveShape method to test redoing a shape move in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testredomoveshape() throws Exception {
+    public void testredomoveshape() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "move r1 1 1",
@@ -587,10 +563,9 @@ public class ClevisTest {
 
     /**
      * testundoMoveGroupShape method to test undoing a group shape move in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testundomovegroupshape() throws Exception {
+    public void testundomovegroupshape() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 1 1 2",
@@ -614,10 +589,9 @@ public class ClevisTest {
 
     /**
      * testredoMoveGroupShape method to test redoing a group shape move in the Clevis application.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testredomovegroupshape() throws Exception {
+    public void testredomovegroupshape() {
         String input = String.join("\n", Arrays.asList(
                 "rectangle r1 0 0 5 5",
                 "circle c1 1 1 2",

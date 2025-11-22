@@ -8,12 +8,18 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Unit tests for undo and redo functionalities in the Clevis application.
+ */
 public class UndoRedoTest {
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
 
+    /**
+     * Restores the original System.in and System.out after each test.
+     */
     @After
-    public void tearDown() {
+    public void restore() {
         System.setIn(originalIn);
         System.setOut(originalOut);
     }
@@ -26,12 +32,16 @@ public class UndoRedoTest {
         PrintStream ps = new PrintStream(baos);
         System.setOut(ps);
 
-        new Clevis();
+        new Clevis(false);
 
         ps.flush();
         return baos.toString();
     }
 
+    /**
+     * Tests undo and redo operations when there are no prior operations to undo or redo.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testemptyundoundo() throws Exception {
         String input = String.join("\n", Arrays.asList(
