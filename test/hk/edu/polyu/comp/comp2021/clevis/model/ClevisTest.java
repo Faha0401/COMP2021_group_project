@@ -8,18 +8,24 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertTrue;
 
+/**
+ * ClevisTest class contains unit tests for the Clevis application.
+ */
 public class ClevisTest {
 
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
 
+    /**
+     * restore method to restore original System input and output streams after each test.
+     */
     @After
-    public void tearDown() {
+    public void restore() {
         System.setIn(originalIn);
         System.setOut(originalOut);
     }
 
-    private String runClevisWithInput(String input) throws Exception {
+    private String runClevisWithInput(String input) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(input.getBytes());
         System.setIn(testIn);
 
@@ -27,13 +33,17 @@ public class ClevisTest {
         PrintStream ps = new PrintStream(baos);
         System.setOut(ps);
 
-        new Clevis();
+        new Clevis(false);
 
         ps.flush();
         return baos.toString();
     }
 
 
+    /**
+     * testunexpected method to test handling of unexpected commands in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testunexpected() throws Exception{
         String input = String.join("\n", Arrays.asList(
@@ -48,6 +58,10 @@ public class ClevisTest {
     }
 
 
+    /**
+     * testintersect method to test the intersect command in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testintersect() throws Exception{
         String input = String.join("\n", Arrays.asList(
@@ -64,11 +78,15 @@ public class ClevisTest {
 
         assertTrue(out.contains("[Error]: expected 3 values, but got 1."));
         assertTrue(out.contains("r1 intersect with c1."));
-        assertTrue(out.contains("r1 does not intersect with r2."));//need to pass this
+        assertTrue(out.contains("r1 does not intersect with r2."));
 
     }
 
 
+    /**
+     * testCreateAndListAll method to test creating shapes and listing all shapes in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testCreateAndListAll() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -85,6 +103,10 @@ public class ClevisTest {
         assertTrue(out.contains("Rectangle r1 x:0.00 y:0.00 width:10.00 height:5.00"));
     }
 
+    /**
+     * testMoveAndShapeAt method to test moving a shape and checking which shape is at a specific point in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testMoveAndShapeAt() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -100,6 +122,10 @@ public class ClevisTest {
         assertTrue(out.contains("s1 is the first shape that covers the point (4.00,5.00)."));
     }
 
+    /**
+     * testGroupUngroupAndDelete method to test grouping, ungrouping, and deleting shapes in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testGroupUngroupAndDelete() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -117,7 +143,7 @@ public class ClevisTest {
         assertTrue(out.contains("Rectangle rA has been created."));
         assertTrue(out.contains("Rectangle rB has been created."));
         assertTrue(out.contains("Group G1 has been created."));
-        assertTrue(out.contains("Group shape :G1"));
+        assertTrue(out.contains("Group G1 :"));
         assertTrue(out.contains("\tRectangle rA x:0.00 y:0.00 width:2.00 height:2.00"));
         assertTrue(out.contains("\tRectangle rB x:3.00 y:3.00 width:2.00 height:2.00"));
         assertTrue(out.contains("Group G1 has been ungrouped."));
@@ -125,6 +151,10 @@ public class ClevisTest {
         assertTrue(out.contains("Rectangle rB x:3.00 y:3.00 width:2.00 height:2.00"));
     }
 
+    /**
+     * testCircleCreationAndListing method to test creating a circle and listing its details in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testCircleCreationAndListing() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -135,12 +165,14 @@ public class ClevisTest {
 
         String out = runClevisWithInput(input);
 
-        // Verifies that the creation message is printed
         assertTrue(out.contains("Circle c1 has been created."));
-        // Verifies that the properties of the circle are listed correctly
         assertTrue(out.contains("Circle c1 x:5.00 y:5.00 radius:2.00"));
     }
 
+    /**
+     * testMoveCircle method to test moving a circle and listing its updated details in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testMoveCircle() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -152,29 +184,34 @@ public class ClevisTest {
 
         String out = runClevisWithInput(input);
 
-        // Verifies that the circle has been created
         assertTrue(out.contains("Circle c1 has been created."));
-        // Verifies that the circle has been moved to the new coordinates
         assertTrue(out.contains("Shape c1 is moved to (8.00,8.00)."));
-        // Verifies that the properties of the circle reflect the new position
         assertTrue(out.contains("Circle c1 x:8.00 y:8.00 radius:2.00"));
     }
 
+    /**
+     * testLineCreationAndListing method to test creating a line and listing its details in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testLineCreationAndListing() throws Exception {
         String input = String.join("\n", Arrays.asList(
-                "line l1 5 5 2 2",  // Command to create a circle
-                "list l1",          // Command to list the properties of the circle
+                "line l1 5 5 2 2",
+                "list l1",
                 "quit"
         )) + "\n";
 
         String out = runClevisWithInput(input);
 
-        // Verifies that the creation message is printed
+
         assertTrue(out.contains("Line l1 has been created."));
-        // Verifies that the properties of the circle are listed correctly
         assertTrue(out.contains("Line l1 x1:5.00 y1:5.00 x1:2.00 y2:2.00"));
     }
+
+    /**
+     * testMoveLine method to test moving a line and listing its updated details in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testMoveLine() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -186,13 +223,16 @@ public class ClevisTest {
 
         String out = runClevisWithInput(input);
 
-        // Verifies that the circle has been created
+
         assertTrue(out.contains("Line l1 has been created."));
-        // Verifies that the circle has been moved to the new coordinates
         assertTrue(out.contains("Shape l1 is moved to (8.00,9.00)."));
-        // Verifies that the properties of the circle reflect the new position
         assertTrue(out.contains("Line l1 x1:8.00 y1:9.00 x1:5.00 y2:6.00"));
     }
+
+    /**
+     * testSquareCreationAndListing method to test creating a square and listing its details in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testSquareCreationAndListing() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -209,6 +249,10 @@ public class ClevisTest {
         assertTrue(out.contains("Square s1 x:2.00 y:2.00 side width:5.00"));
     }
 
+    /**
+     * testMoveSquare method to test moving a square and listing its updated details in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testRectangleCreationAndListing() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -225,6 +269,10 @@ public class ClevisTest {
         assertTrue(out.contains("Rectangle r1 x:5.00 y:5.00 width:4.00 height:4.00"));
     }
 
+    /**
+     * testMoveRectangle method to test moving a rectangle and listing its updated details in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testMoveRectangle() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -247,6 +295,10 @@ public class ClevisTest {
 
 
 
+    /**
+     * testInitBoundingBox method to test initializing bounding boxes for various shapes in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testInitBoundingBox() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -277,6 +329,10 @@ public class ClevisTest {
 
     }
 
+    /**
+     * testgroupedshape method to test grouping shapes and moving the group in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testgroupedshape() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -293,12 +349,17 @@ public class ClevisTest {
 
         assertTrue(out.contains("Group g1 has been created."));
 
-        assertTrue(out.contains("Group shape :g1\n" +
-                "\tRectangle r1 x:5.00 y:5.00 width:4.00 height:4.00\n" +
-                "\tCircle c1 x:5.00 y:5.00 radius:2.00"));
+        assertTrue(out.contains("Group g1 :"));
+        assertTrue(out.contains("\tRectangle r1 x:5.00 y:5.00 width:4.00 height:4.00"));
+        assertTrue(out.contains("\tCircle c1 x:5.00 y:5.00 radius:2.00"));
+
         assertTrue(out.contains("Shape g1 is moved to (7.00,8.00)."));
     }
 
+    /**
+     * testundoRedoShapeCreation method to test undoing and redoing shape creation in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testUndoshapecreation() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -316,6 +377,10 @@ public class ClevisTest {
         assertTrue(out.contains("Shape c1 is not found"));
     }
 
+    /**
+     * testredoShapeCreation method to test redoing shape creation in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testRedoshapecreation() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -333,6 +398,10 @@ public class ClevisTest {
         assertTrue(out.contains("Circle c1 x:3.00 y:3.00 radius:3.00"));
     }
 
+    /**
+     * testundoShapeDeletion method to test undoing shape deletion in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testundoshapedeletion() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -350,6 +419,10 @@ public class ClevisTest {
         assertTrue(out.contains("Circle c1 x:3.00 y:3.00 radius:3.00"));
     }
 
+    /**
+     * testredoShapeDeletion method to test redoing shape deletion in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testredoshapedeletion() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -367,6 +440,10 @@ public class ClevisTest {
         assertTrue(out.contains("Shape c1 is not found."));
     }
 
+    /**
+     * testundoShapeGrouping method to test undoing shape grouping in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testundoshapegroping() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -381,13 +458,17 @@ public class ClevisTest {
         String out = runClevisWithInput(input);
 
         assertTrue(out.contains("Group g1 has been created."));
-        assertTrue(out.contains("Group shape :g1"));
+        assertTrue(out.contains("Group g1 :"));
         assertTrue(out.contains("\tRectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
         assertTrue(out.contains("\tCircle c1 x:3.00 y:3.00 radius:3.00"));
         assertTrue(out.contains("Group g1 has been ungrouped."));
         assertTrue(out.contains("Shape g1 is not found."));
     }
 
+    /**
+     * testredoShapeGrouping method to test redoing shape grouping in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testredoshapegroping() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -404,11 +485,15 @@ public class ClevisTest {
         assertTrue(out.contains("Group g1 has been created."));
         assertTrue(out.contains("Group g1 has been ungrouped."));
         assertTrue(out.contains("Group g1 has been regrouped."));
-        assertTrue(out.contains("Group shape :g1"));
+        assertTrue(out.contains("Group g1 :"));
         assertTrue(out.contains("\tRectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
         assertTrue(out.contains("\tCircle c1 x:3.00 y:3.00 radius:3.00"));
     }
 
+    /**
+     * testundoShapeUngrouping method to test undoing shape ungrouping in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testundoshapeungroping() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -425,11 +510,15 @@ public class ClevisTest {
         assertTrue(out.contains("Group g1 has been created."));
         assertTrue(out.contains("Group g1 has been ungrouped."));
         assertTrue(out.contains("Group g1 has been regrouped."));
-        assertTrue(out.contains("Group shape :g1"));
+        assertTrue(out.contains("Group g1 :"));
         assertTrue(out.contains("\tRectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
         assertTrue(out.contains("\tCircle c1 x:3.00 y:3.00 radius:3.00"));
     }
 
+    /**
+     * testredoShapeUngrouping method to test redoing shape ungrouping in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testredoshapeungroping() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -450,6 +539,10 @@ public class ClevisTest {
         assertTrue(out.contains("Shape g1 is not found."));
     }
 
+    /**
+     * testundoMoveShape method to test undoing a shape move in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testundomoveshape() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -468,6 +561,10 @@ public class ClevisTest {
         assertTrue(out.contains("Rectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
     }
 
+    /**
+     * testredoMoveShape method to test redoing a shape move in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testredomoveshape() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -488,6 +585,10 @@ public class ClevisTest {
         assertTrue(out.contains("Rectangle r1 x:1.00 y:1.00 width:5.00 height:5.00"));
     }
 
+    /**
+     * testundoMoveGroupShape method to test undoing a group shape move in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testundomovegroupshape() throws Exception {
         String input = String.join("\n", Arrays.asList(
@@ -511,6 +612,10 @@ public class ClevisTest {
         assertTrue(out.contains("Bounding Box: x:-1.00 y:-1.00 width:5.00 height:5.00"));
     }
 
+    /**
+     * testredoMoveGroupShape method to test redoing a group shape move in the Clevis application.
+     * @throws Exception if an error occurs during the test
+     */
     @Test
     public void testredomovegroupshape() throws Exception {
         String input = String.join("\n", Arrays.asList(

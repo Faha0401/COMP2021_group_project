@@ -8,16 +8,47 @@ import java.util.List;
 import java.util.Stack;
 
 
+/**
+ * CommandParser class is for parsing and executing commands related to shape management.
+ * It supports operations such as creating shapes, listing shapes, deleting shapes,
+ * grouping/ungrouping shapes, checking intersections, moving shapes, and undo/redo functionality
+ * of commands.
+ */
 public class CommandParser {
+    private final Clevis clevis;
+    private final List<Shape> shapes;
+    private final Stack<Shape> Bin;
+    private final Stack<String[]> undo;
+    private final Stack<String[]> redo;
+    private final Stack<double[]> undocoord;
+    private final Stack<double[]> redocoord;
 
-    public static void parseAndExecute(String command, int index, List<Shape> shapes, boolean quitFlag, Stack<Shape>Bin, Stack<String[]>undo, Stack<String[]>redo, Stack<double[]>undocoord, Stack<double[]>redocoord) {
+    /**
+     * Constructor for CommandParser, initializing with a Clevis instance and retrieve data from a Celvis instance.
+     * @param clevis the Clevis instance containing shape data and command history.
+     */
+    public CommandParser(Clevis clevis) {
+        this.clevis = clevis;
+        shapes = clevis.getShapes();
+        Bin = clevis.getBin();
+        undo = clevis.getUndo();
+        redo = clevis.getRedo();
+        undocoord = clevis.getUndocoord();
+        redocoord = clevis.getRedocoord();
+    }
 
+    /**
+     * Parses and executes a given command string.
+     * @param command the command string to be parsed and executed.
+     */
+    public void parseAndExecute(String command) {
+        int index = 0;
         String[] parts = command.trim().split("\\s+");
         if (parts.length == 0) return;
         String operation = parts[index++];
         switch (operation) {
             case "quit": {
-                quitFlag = true;
+                clevis.setQuitFlag(true);
                 System.out.println("The application has been terminated.");
                 break;
             }
@@ -75,7 +106,7 @@ public class CommandParser {
             }
             case "list": {
                 if (!checkInputLength(parts, 2)) break;
-                String name = parts[index++];
+                String name = parts[index];
                 Shape s = searchShape(name, shapes);
                 if (s != null) {
                     s.list();
@@ -92,9 +123,10 @@ public class CommandParser {
 
             case "delete": {
                 if (!checkInputLength(parts, 2)) break;
-                String delName = parts[index++];
+                String delName = parts[index];
                 undo.push(new String[]{"delete", delName});
-                Bin.push(searchShape(delName, shapes));
+                Shape delshape = searchShape(delName, shapes);
+                if(delshape!=null) Bin.push(delshape);
                 delete(delName, shapes);
                 break;
             }
@@ -131,7 +163,7 @@ public class CommandParser {
 
             case "ungroup": {
                 if (!checkInputLength(parts, 2)) break;
-                String groupName = parts[index++];
+                String groupName = parts[index];
                 if(!ungroup(groupName, shapes, Bin)) System.out.println("Group " + groupName + " not found.");
                 undo.push(new String[]{"regroup", groupName});
                 break ;
@@ -140,7 +172,7 @@ public class CommandParser {
             case "intersect": {
                 if (!checkInputLength(parts, 3)) break;
                 Shape n1 = searchShape(parts[index++], shapes);
-                Shape n2 = searchShape(parts[index++], shapes);
+                Shape n2 = searchShape(parts[index], shapes);
                 if (n1 == null || n2 == null) break;
                 n1.initboundingbox();
                 n2.initboundingbox();
@@ -159,7 +191,7 @@ public class CommandParser {
 
             case "boundingBox": {
                 if (!checkInputLength(parts, 2)) break;
-                String ShapeName = parts[index++];
+                String ShapeName = parts[index];
                 Shape s = searchShape(ShapeName, shapes);
                 if (s != null) s.boundingbox();
                 break;
@@ -198,11 +230,11 @@ public class CommandParser {
                 break;
             }
             case "undo":{
-                undo(false, shapes, Bin, undocoord, redocoord, undo, redo);
+                undo(false);
                 break;
             }
             case "redo":{
-                redo(shapes, Bin, undocoord, redocoord, undo, redo);
+                redo();
                 break;
             }
 
@@ -213,7 +245,10 @@ public class CommandParser {
 
     }
 
-    public static void redo(List<Shape> shapes, Stack<Shape> Bin, Stack<double[]> undocoord, Stack<double[]> redocoord, Stack<String[]> undo, Stack<String[]> redo){
+    /**
+     *  Redoes the last undone operation.
+     */
+    private void redo(){
         if(redo.empty()){
             System.out.println("There is no operation to be redo");
             return;
@@ -245,10 +280,14 @@ public class CommandParser {
                 break;
             }
         }
-        undo(true, shapes, Bin, undocoord, redocoord, undo, redo);
+        undo(true);
     }
 
-    public static void undo(boolean isredo, List<Shape> shapes, Stack<Shape> Bin, Stack<double[]> undocoord , Stack<double[]> redocoord,Stack<String[]> undo,Stack<String[]> redo){
+    /**
+     * Undoes the last operation performed.
+     * @param isredo indicates if the undo operation is part of a redo action.
+     */
+    private void undo(boolean isredo){
         if(undo.empty()){
             System.out.println("There is no operation to be undo");
             return;
@@ -291,18 +330,27 @@ public class CommandParser {
                 break;
         }
         if(!isredo) redo.push(curUndo);
-        ;
     }
 
-    public static void delete(String name, List<Shape> shapes) {
+    /**
+     * Deletes a shape by its name from the provided list of shapes.
+     * @param name the name of the shape to be deleted.
+     * @param shapes the list of shapes from which the shape will be deleted.
+     */
+    private void delete(String name, List<Shape> shapes) {
         if (shapes.removeIf(s -> s.getName().equals(name))) {
             System.out.println("Shape " + name + " has been deleted.");
         } else {
             System.out.println("Shape " + name + " is not found.");
         }
     }
-
-    public static boolean ExistName(String name, List<Shape> shapes) {
+    /**
+     * Checks if a shape with the given name already exists in the provided list of shapes.
+     * @param name the name to check for existence.
+     * @param shapes the list of shapes to check within.
+     * @return true if a shape with the given name exists, false otherwise.
+     */
+    private boolean ExistName(String name, List<Shape> shapes) {
         for (Shape ungroupShape : shapes) {
             if (ungroupShape.getName().equals(name)) {
                 System.out.println("The name " + name + " is used, please enter another name.");
@@ -311,7 +359,14 @@ public class CommandParser {
         }
         return false;
     }
-    public static Shape searchShape(String name, List<Shape> shapes){ //search for ungroup shape
+
+    /**
+     * Searches for a shape by its name in the provided list of shapes.
+     * @param name the name of the shape to search for.
+     * @param shapes the list of shapes to search within.
+     * @return the shape if found, null otherwise.
+     */
+    public Shape searchShape(String name, List<Shape> shapes){ //search for ungroup shape
         for(Shape e: shapes){
             if (e.getName().equals(name)){
                 return e;
@@ -321,7 +376,13 @@ public class CommandParser {
         return null;
     }
 
-    public static boolean checkInputLength(String[] parts, int expectedLength) {
+    /**
+     * Checks if the input length matches the expected length, prints an error message if it is not.
+     * @param parts the array of input parts.
+     * @param expectedLength the expected length of the input.
+     * @return true if the input length matches the expected length, false otherwise.
+     */
+    public boolean checkInputLength(String[] parts, int expectedLength) {
         if (parts.length != expectedLength) {
             System.out.println("[Error]: expected " + expectedLength + " values, but got " + parts.length + ".");
             return false;
@@ -329,7 +390,14 @@ public class CommandParser {
         return true;
     }
 
-    private static double[] ReadValues(String[] parts, int numberOfValues, int index) {
+    /**
+     * Reads a specified number of double values from the input parts starting at a given index.
+     * @param parts the array of input parts.
+     * @param numberOfValues the number of double values to read.
+     * @param index the starting index in the parts array.
+     * @return an array of double values if successful, null if any value is invalid.
+     */
+    private double[] ReadValues(String[] parts, int numberOfValues, int index) {
         double[] values = new double[numberOfValues];
 
         for (int i = 0; i < numberOfValues; i++) {
@@ -342,22 +410,38 @@ public class CommandParser {
         }
         return values;
     }
-    private static boolean shapeAt(double x, double y, Shape e){
+
+    /**
+     * Checks if a point (x, y) is on the border of a given shape.
+     * @param x the x-coordinate of the point.
+     * @param y the y-coordinate of the point.
+     * @param e the shape to check against.
+     * @return true if the point is on the border of the shape, false otherwise.
+     */
+    private boolean shapeAt(double x, double y, Shape e){
+        final double TOLERANCE = 0.05;
         e.initboundingbox();
         double [] boundingbox = e.getBoundingbox();
-        return (x > boundingbox[0] - 0.05 && x < boundingbox[0] + 0.05 && y < boundingbox[1] + 0.05 && y > boundingbox[1] + boundingbox[3] - 0.05) ||
-                (x > boundingbox[0] + boundingbox[2] - 0.05 && x < boundingbox[0] + boundingbox[2] + 0.05 && y < boundingbox[1] + 0.05 && y > boundingbox[1] + boundingbox[3] - 0.05) ||
-                (y > boundingbox[1] - 0.05 && y < boundingbox[1] + 0.05 && x > boundingbox[0] - 0.05 && x < boundingbox[0] + boundingbox[2] + 0.05) ||
-                (y > boundingbox[1] + boundingbox[3] - 0.05 && y < boundingbox[1] + boundingbox[3] + 0.05 && x > boundingbox[0] - 0.05 && x < boundingbox[0] + boundingbox[2] + 0.05);
+        return (x > boundingbox[0] - TOLERANCE && x < boundingbox[0] + TOLERANCE && y < boundingbox[1] + TOLERANCE && y > boundingbox[1] + boundingbox[3] - TOLERANCE) ||
+                (x > boundingbox[0] + boundingbox[2] - TOLERANCE && x < boundingbox[0] + boundingbox[2] + TOLERANCE && y < boundingbox[1] + TOLERANCE && y > boundingbox[1] + boundingbox[3] - TOLERANCE) ||
+                (y > boundingbox[1] - TOLERANCE && y < boundingbox[1] + TOLERANCE && x > boundingbox[0] - TOLERANCE && x < boundingbox[0] + boundingbox[2] + TOLERANCE) ||
+                (y > boundingbox[1] + boundingbox[3] - TOLERANCE && y < boundingbox[1] + boundingbox[3] + TOLERANCE && x > boundingbox[0] - TOLERANCE && x < boundingbox[0] + boundingbox[2] + TOLERANCE);
     }
 
-    public static boolean ungroup(String groupName, List<Shape> shapes, Stack<Shape> Bin) {
+    /**
+     * Ungroups a grouped shape by its name, adding its constituent shapes back to the main shape list.
+     * @param groupName the name of the group to ungroup.
+     * @param shapes the list of shapes to modify.
+     * @param Bin the stack to store the ungrouped shape.
+     * @return true if the group was found and ungrouped, false otherwise.
+     */
+    private boolean ungroup(String groupName, List<Shape> shapes, Stack<Shape> Bin) {
         for (Shape s : shapes) {
             if (s.getName().equals(groupName) && s instanceof GroupedShape) {
                 Bin.push(s);
                 shapes.addAll(((GroupedShape) s).getGroup());
                 shapes.remove(s);
-                shapes.sort(Comparator.comparingInt((Shape x) -> x.getzIndex()).reversed());
+                shapes.sort(Comparator.comparingInt(Shape::getzIndex).reversed());
                 System.out.println("Group " + groupName + " has been ungrouped.");
                 return true;
             }
