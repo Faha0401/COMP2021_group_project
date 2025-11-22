@@ -24,7 +24,7 @@ public class UndoRedoTest {
         System.setOut(originalOut);
     }
 
-    private String runClevisWithInput(String input) throws Exception {
+    private String runClevisWithInput(String input) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(input.getBytes());
         System.setIn(testIn);
 
@@ -40,10 +40,9 @@ public class UndoRedoTest {
 
     /**
      * Tests undo and redo operations when there are no prior operations to undo or redo.
-     * @throws Exception if an error occurs during the test
      */
     @Test
-    public void testemptyundoundo() throws Exception {
+    public void testemptyundoundo() {
         String input = String.join("\n", Arrays.asList(
                 "undo",
                 "redo",
