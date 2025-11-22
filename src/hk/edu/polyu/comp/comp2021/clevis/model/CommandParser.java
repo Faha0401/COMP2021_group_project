@@ -215,6 +215,7 @@ public class CommandParser {
             }
 
             case "shapeAt": {
+                boolean flag = true;
                 if (!checkInputLength(parts, 3)) break;
                 double[] coord = ReadValues(parts, 2, index);
                 if (coord == null) break;
@@ -222,11 +223,12 @@ public class CommandParser {
                 double y = coord[1];
                 for (Shape s : shapes) {
                     if (shapeAt(x, y, s)) {
-                        System.out.println(s.getClass() + s.getName() + " is the first shape that covers the point (" + String.format("%.2f", x) + "," + String.format("%.2f", y) + ").");
+                        System.out.println(s.getName() + " is the first shape that covers the point (" + String.format("%.2f", x) + "," + String.format("%.2f", y) + ").");
+                        flag = false;
                         break;
                     }
                 }
-                System.out.println("No shape is covering the point (" + String.format("%.2f", x) + "," + String.format("%.2f", y) + ").");
+                if (flag) System.out.println("No shape is covering the point (" + String.format("%.2f", x) + "," + String.format("%.2f", y) + ").");
                 break;
             }
             case "undo":{
