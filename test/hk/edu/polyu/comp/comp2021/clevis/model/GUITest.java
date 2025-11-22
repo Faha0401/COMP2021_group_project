@@ -141,7 +141,7 @@ public class GUITest {
 			Field cmdField = GUI.class.getDeclaredField("commandField");
 			cmdField.setAccessible(true);
 			JTextField commandField = (JTextField) cmdField.get(gui);
-			commandField.setText("rectangle r_cmd 0 0 1 1");
+			commandField.setText("rectangle r1 0 0 1 1");
 			ActionListener[] listeners = commandField.getActionListeners();
 			for (ActionListener al : listeners) {
 				al.actionPerformed(new ActionEvent(commandField, ActionEvent.ACTION_PERFORMED, ""));

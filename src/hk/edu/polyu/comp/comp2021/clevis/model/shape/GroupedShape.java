@@ -51,7 +51,7 @@ public class GroupedShape extends Shape {
 
     @Override
     public void list(){
-        System.out.println("Group "+name+" :");
+        System.out.println("Group shape :"+name);
 
         for (Shape shape : getGroup()) {
             System.out.print("\t");
