@@ -32,7 +32,7 @@ public class TestInfinityShape extends Shape {
 
     @Override
     public void computeWorldBounds(double[] bounds) {
-        bounds[2] = Double.POSITIVE_INFINITY; // force branch
+        bounds[2] = Double.POSITIVE_INFINITY;
     }
 
     @Override
