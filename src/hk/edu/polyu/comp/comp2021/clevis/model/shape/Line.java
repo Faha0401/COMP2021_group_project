@@ -48,7 +48,11 @@ public class Line extends Shape {
 
     @Override
     public void list() {
-        System.out.println("Line " + this.name + " x1:" + String.format("%.2f",x1) + " y1:" + String.format("%.2f",y1) + " x1:" + String.format("%.2f",x2) + " y2:" + String.format("%.2f",y2));
+        System.out.println("Line " + this.name +
+                " x1:" + String.format("%.2f",x1) +
+                " y1:" + String.format("%.2f",y1) +
+                " x1:" + String.format("%.2f",x2) +
+                " y2:" + String.format("%.2f",y2));
     }
     @Override
     public void initboundingbox(){
@@ -57,7 +61,11 @@ public class Line extends Shape {
     @Override
     public void boundingbox() {
         initboundingbox();
-        System.out.println("Bounding Box: x:" + String.format("%.2f", getBoundingbox()[0]) + " y:" + String.format("%.2f", getBoundingbox()[1]) + " width:"+ String.format("%.2f", getBoundingbox()[2]) + " height" + String.format("%.2f", getBoundingbox()[3]));        }
+        System.out.println("Bounding Box: x:" + String.format("%.2f", getBoundingbox()[0]) +
+                " y:" + String.format("%.2f", getBoundingbox()[1]) +
+                " width:"+ String.format("%.2f", getBoundingbox()[2]) +
+                " height" + String.format("%.2f", getBoundingbox()[3]));
+    }
 
     @Override
     public void computeWorldBounds(double[] bounds) {

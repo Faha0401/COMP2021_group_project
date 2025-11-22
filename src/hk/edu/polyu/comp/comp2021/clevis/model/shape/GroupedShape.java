@@ -68,7 +68,10 @@ public class GroupedShape extends Shape {
     public void boundingbox(){
         initboundingbox();
 
-        System.out.println("Bounding Box: x:" + String.format("%.2f", getBoundingbox()[0]) + " y:" + String.format("%.2f", getBoundingbox()[1]) + " width:"+ String.format("%.2f", getBoundingbox()[2]) + " height:" + String.format("%.2f", getBoundingbox()[3]));
+        System.out.println("Bounding Box: x:" + String.format("%.2f", getBoundingbox()[0]) +
+                " y:" + String.format("%.2f", getBoundingbox()[1]) +
+                " width:"+ String.format("%.2f", getBoundingbox()[2]) +
+                " height:" + String.format("%.2f", getBoundingbox()[3]));
     }
 
     @Override

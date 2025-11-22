@@ -53,5 +53,4 @@ public class UndoRedoTest {
         assertTrue(out.contains("There is no operation to be undo"));
         assertTrue(out.contains("There is no operation to be redo"));
     }
-
 }

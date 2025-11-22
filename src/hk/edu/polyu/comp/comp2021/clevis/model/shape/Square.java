@@ -47,7 +47,10 @@ public class Square extends Shape {
 
     @Override
     public void list() {
-        System.out.println("Square " + this.name + " x:" + String.format("%.2f",x )+ " y:" + String.format("%.2f",y )+ " side width:" + String.format("%.2f",l));
+        System.out.println("Square " + this.name +
+                " x:" + String.format("%.2f",x )+
+                " y:" + String.format("%.2f",y )+
+                " side width:" + String.format("%.2f",l));
     }
 
     @Override
@@ -58,7 +61,10 @@ public class Square extends Shape {
     @Override
     public void boundingbox() {
         initboundingbox();
-        System.out.println("Bounding Box: x:" + String.format("%.2f", getBoundingbox()[0]) + " y:" + String.format("%.2f", getBoundingbox()[1]) + " width:" + String.format("%.2f", getBoundingbox()[2]) + " height" + String.format("%.2f", getBoundingbox()[3]));
+        System.out.println("Bounding Box: x:" + String.format("%.2f", getBoundingbox()[0]) +
+                " y:" + String.format("%.2f", getBoundingbox()[1]) +
+                " width:" + String.format("%.2f", getBoundingbox()[2]) +
+                " height" + String.format("%.2f", getBoundingbox()[3]));
     }
 
     @Override

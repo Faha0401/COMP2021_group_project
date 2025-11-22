@@ -610,6 +610,32 @@ public class ClevisTest {
         assertTrue(out.contains("Shape g1 is moved to (0.00,0.00)."));
         assertTrue(out.contains("Bounding Box: x:0.00 y:0.00 width:5.00 height:5.00"));
     }
+
+    /**
+     * testGroupingExistedGroup method to test grouping an existing group in the Clevis application.
+     */
+    @Test
+    public void testGroupingExistedGroup() {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 1 1 2",
+                "group g1 r1 c1",
+                "rectangle r2 10 10 2 2",
+                "group g2 g1 r2",
+                "list g2",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Group g1 has been created."));
+        assertTrue(out.contains("Group g2 has been created."));
+        assertTrue(out.contains("Group g2 :"));
+        assertTrue(out.contains("\tRectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("\tCircle c1 x:1.00 y:1.00 radius:2.00"));
+        assertTrue(out.contains("\tRectangle r2 x:10.00 y:10.00 width:2.00 height:2.00"));
+    }
+
+
 }
 
 

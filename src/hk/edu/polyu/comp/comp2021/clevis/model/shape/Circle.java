@@ -44,7 +44,10 @@ public class Circle extends Shape {
     }
     @Override
     public void list() {
-        System.out.println("Circle " + this.name + " x:" + String.format("%.2f",x) + " y:" + String.format("%.2f",y) + " radius:" + String.format("%.2f",r));
+        System.out.println("Circle " + this.name +
+                " x:" + String.format("%.2f",x) +
+                " y:" + String.format("%.2f",y) +
+                " radius:" + String.format("%.2f",r));
     }
     @Override
     public void initboundingbox(){
@@ -53,7 +56,11 @@ public class Circle extends Shape {
     @Override
     public void boundingbox() {
         initboundingbox();
-        System.out.println("Bounding Box: x:" + String.format("%.2f", getBoundingbox()[0]) + " y:" + String.format("%.2f", getBoundingbox()[1]) + " width:"+ String.format("%.2f", getBoundingbox()[2]) + " height" + String.format("%.2f", getBoundingbox()[3]));        }
+        System.out.println("Bounding Box: x:" + String.format("%.2f", getBoundingbox()[0]) +
+                " y:" + String.format("%.2f", getBoundingbox()[1]) +
+                " width:"+ String.format("%.2f", getBoundingbox()[2]) +
+                " height" + String.format("%.2f", getBoundingbox()[3]));
+    }
 
     @Override
     public void computeWorldBounds(double[] bounds) {
