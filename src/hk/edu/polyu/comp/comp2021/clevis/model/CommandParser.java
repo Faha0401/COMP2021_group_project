@@ -178,10 +178,10 @@ public class CommandParser {
                 n2.initboundingbox();
                 double[] boundingbox1 = n1.getBoundingbox();
                 double[] boundingbox2 = n2.getBoundingbox();
-                if (!(boundingbox1[0] > boundingbox1[0]+boundingbox2[2] || //(in y down format) n1 left > n2 right
-                        boundingbox1[0]+boundingbox1[2] < boundingbox2[0] ||  //n1 right < n2 left
-                        boundingbox1[1] + boundingbox1[3] < boundingbox2[1] ||  //n1 bot < n2 top
-                        boundingbox1[1] > boundingbox1[1] + boundingbox2[3])){  //n1 top > n2 bot
+                if (!(boundingbox1[0] > boundingbox2[0]+boundingbox2[2] ||
+                        boundingbox1[0]+boundingbox1[2] < boundingbox2[0] ||
+                        boundingbox1[1] + boundingbox1[3] < boundingbox2[1] ||
+                        boundingbox1[1] > boundingbox2[1] + boundingbox2[3])){
                     System.out.println(n1.getName() + " intersect with " + n2.getName() + ".");
                     break;
                 }
