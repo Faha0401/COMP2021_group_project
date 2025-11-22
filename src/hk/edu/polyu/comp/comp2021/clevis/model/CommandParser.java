@@ -324,7 +324,7 @@ public class CommandParser {
                 double[] dest = undocoord.pop();
                 redocoord.push(new double[]{shape.getx(), shape.gety()});
                 shape.move(dest[0]*-1, dest[1]*-1);
-                System.out.println(shape.getName() + " has moved back to " + "(" + shape.getx() + "," + shape.gety() + ")");
+                System.out.println(shape.getName() + " has moved back to " + "(" + String.format("%.2f", shape.getx()) + "," + String.format("%.2f", shape.gety()) + ")");
                 break;
             }
             default:
