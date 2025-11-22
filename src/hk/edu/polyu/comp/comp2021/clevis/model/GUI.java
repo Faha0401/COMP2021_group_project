@@ -19,7 +19,7 @@ public class GUI extends JFrame {
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
     private static final double WORLD_MIN = 0.000001;
-    private static final int PADDING = 20;
+    private static final int PADDING = 100;
     private static final double CENTER_DIVISOR = 2.0;
     private final DrawingPanel drawingPanel;
     private final JTextField commandField;
@@ -84,8 +84,9 @@ public class GUI extends JFrame {
             double worldWidth = Math.max(WORLD_MIN, maxX - minX);
             double worldHeight = Math.max(WORLD_MIN, maxY - minY);
 
-            double fitScale = Math.min((getWidth() - CENTER_DIVISOR * PADDING) / worldWidth, (getHeight() - CENTER_DIVISOR * PADDING) / worldHeight);
-            if (Double.isInfinite(fitScale) || Double.isNaN(fitScale) || fitScale <= 0) fitScale = 1.0;
+            double fitScale = Math.min((getWidth() - PADDING * 2) / worldWidth, (getHeight() - PADDING * 2) / worldHeight);
+            if (Double.isInfinite(fitScale) || Double.isNaN(fitScale) || fitScale <= 0)
+                fitScale = 1.0;
             double worldCenterX = (minX + maxX) / CENTER_DIVISOR;
             double worldCenterY = (minY + maxY) / CENTER_DIVISOR;
 

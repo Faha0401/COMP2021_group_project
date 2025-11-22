@@ -7770,3 +7770,15 @@ circle c1 5 5 2
 rectangle r1 0 0 5 5
 rectangle r1 0 0 10 5
 undo
+rectangle r1 1 2 3 4
+rectangle r1 1 2 3 4
+rectangle r1 1 2 3 4
+rectangle r1 1 1 1 1
+rectangle r1 100 100 100 100
+rectangle r1 1 2 3 4
+rectangle r1 1 2 3 4
+rectangle r1 1 2 3 4
+rectangle r1 1 2 3 4
+rectangle r1 1 1 1 1
+rectangle r1 1 2 3 4
+rectangle r1 1 2 3 4
