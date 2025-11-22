@@ -81,8 +81,8 @@ public class ClevisTest {
 
         assertTrue(out.contains("Rectangle r1 has been created."));
         assertTrue(out.contains("Circle c1 has been created."));
-        assertTrue(out.contains("Circle c1 x:5.0 y:5.0 radius:2.0"));
-        assertTrue(out.contains("Rectangle r1 x:0.0 y:0.0 width:10.0 height:5.0"));
+        assertTrue(out.contains("Circle c1 x:5.00 y:5.00 radius:2.00"));
+        assertTrue(out.contains("Rectangle r1 x:0.00 y:0.00 width:10.00 height:5.00"));
     }
 
     @Test
@@ -118,11 +118,11 @@ public class ClevisTest {
         assertTrue(out.contains("Rectangle rB has been created."));
         assertTrue(out.contains("Group G1 has been created."));
         assertTrue(out.contains("Group shape :G1"));
-        assertTrue(out.contains("\tRectangle rA x:0.0 y:0.0 width:2.0 height:2.0"));
-        assertTrue(out.contains("\tRectangle rB x:3.0 y:3.0 width:2.0 height:2.0"));
+        assertTrue(out.contains("\tRectangle rA x:0.00 y:0.00 width:2.00 height:2.00"));
+        assertTrue(out.contains("\tRectangle rB x:3.00 y:3.00 width:2.00 height:2.00"));
         assertTrue(out.contains("Group G1 has been ungrouped."));
         assertTrue(out.contains("Shape rA has been deleted."));
-        assertTrue(out.contains("Rectangle rB x:3.0 y:3.0 width:2.0 height:2.0"));
+        assertTrue(out.contains("Rectangle rB x:3.00 y:3.00 width:2.00 height:2.00"));
     }
 
     @Test
@@ -138,7 +138,7 @@ public class ClevisTest {
         // Verifies that the creation message is printed
         assertTrue(out.contains("Circle c1 has been created."));
         // Verifies that the properties of the circle are listed correctly
-        assertTrue(out.contains("Circle c1 x:5.0 y:5.0 radius:2.0"));
+        assertTrue(out.contains("Circle c1 x:5.00 y:5.00 radius:2.00"));
     }
 
     @Test
@@ -157,7 +157,7 @@ public class ClevisTest {
         // Verifies that the circle has been moved to the new coordinates
         assertTrue(out.contains("Shape c1 is moved to (8.00,8.00)."));
         // Verifies that the properties of the circle reflect the new position
-        assertTrue(out.contains("Circle c1 x:8.0 y:8.0 radius:2.0"));
+        assertTrue(out.contains("Circle c1 x:8.00 y:8.00 radius:2.00"));
     }
 
     @Test
@@ -173,7 +173,7 @@ public class ClevisTest {
         // Verifies that the creation message is printed
         assertTrue(out.contains("Line l1 has been created."));
         // Verifies that the properties of the circle are listed correctly
-        assertTrue(out.contains("Line l1 x1:5.0 y1:5.0 x1:2.0 y2:2.0"));
+        assertTrue(out.contains("Line l1 x1:5.00 y1:5.00 x1:2.00 y2:2.00"));
     }
     @Test
     public void testMoveLine() throws Exception {
@@ -191,7 +191,7 @@ public class ClevisTest {
         // Verifies that the circle has been moved to the new coordinates
         assertTrue(out.contains("Shape l1 is moved to (8.00,9.00)."));
         // Verifies that the properties of the circle reflect the new position
-        assertTrue(out.contains("Line l1 x1:8.0 y1:9.0 x1:5.0 y2:6.0"));
+        assertTrue(out.contains("Line l1 x1:8.00 y1:9.00 x1:5.00 y2:6.00"));
     }
     @Test
     public void testSquareCreationAndListing() throws Exception {
@@ -206,7 +206,7 @@ public class ClevisTest {
 
         assertTrue(out.contains("Square s1 has been created."));
 
-        assertTrue(out.contains("Square s1 x:2.0 y:2.0 side width:5.0"));
+        assertTrue(out.contains("Square s1 x:2.00 y:2.00 side width:5.00"));
     }
 
     @Test
@@ -222,7 +222,7 @@ public class ClevisTest {
 
         assertTrue(out.contains("Rectangle r1 has been created."));
 
-        assertTrue(out.contains("Rectangle r1 x:5.0 y:5.0 width:4.0 height:4.0"));
+        assertTrue(out.contains("Rectangle r1 x:5.00 y:5.00 width:4.00 height:4.00"));
     }
 
     @Test
@@ -240,7 +240,7 @@ public class ClevisTest {
         assertTrue(out.contains("Rectangle r1 has been created."));
 
         assertTrue(out.contains("Shape r1 is moved to (8.00,9.00)."));
-        assertTrue(out.contains("Rectangle r1 x:8.0 y:9.0 width:4.0 height:4.0"));
+        assertTrue(out.contains("Rectangle r1 x:8.00 y:9.00 width:4.00 height:4.00"));
     }
 
 
@@ -266,7 +266,7 @@ public class ClevisTest {
 
 
         assertTrue(out.contains("Line l1 has been created."));
-        assertTrue(out.contains("Bounding Box: x:5.00 y:5.00 width:-3.00 height-3.00"));
+        assertTrue(out.contains("Bounding Box: x:5.00 y:5.00 width:3.00 height3.00"));
         assertTrue(out.contains("Rectangle r1 has been created."));
         assertTrue(out.contains("Bounding Box: x:0.00 y:0.00 width:4.00 height3.00"));
         assertTrue(out.contains("Circle c1 has been created."));
@@ -294,10 +294,243 @@ public class ClevisTest {
         assertTrue(out.contains("Group g1 has been created."));
 
         assertTrue(out.contains("Group shape :g1\n" +
-                "\tRectangle r1 x:5.0 y:5.0 width:4.0 height:4.0\n" +
-                "\tCircle c1 x:5.0 y:5.0 radius:2.0"));
+                "\tRectangle r1 x:5.00 y:5.00 width:4.00 height:4.00\n" +
+                "\tCircle c1 x:5.00 y:5.00 radius:2.00"));
         assertTrue(out.contains("Shape g1 is moved to (7.00,8.00)."));
     }
 
+    @Test
+    public void testUndoshapecreation() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 3 3 3",
+                "undo",
+                "listAll",
+                "list c1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
 
+        assertTrue(out.contains("c1 has been removed"));
+        assertTrue(out.contains("Rectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("Shape c1 is not found"));
+    }
+
+    @Test
+    public void testRedoshapecreation() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 3 3 3",
+                "undo",
+                "redo",
+                "listAll",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("c1 has been removed"));
+        assertTrue(out.contains("Rectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("Circle c1 x:3.00 y:3.00 radius:3.00"));
+    }
+
+    @Test
+    public void testundoshapedeletion() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 3 3 3",
+                "delete c1",
+                "undo",
+                "listAll",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("c1 has been deleted"));
+        assertTrue(out.contains("Rectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("Circle c1 x:3.00 y:3.00 radius:3.00"));
+    }
+
+    @Test
+    public void testredoshapedeletion() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 3 3 3",
+                "delete c1",
+                "undo",
+                "redo",
+                "list c1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("c1 has been deleted"));
+        assertTrue(out.contains("Shape c1 is not found."));
+    }
+
+    @Test
+    public void testundoshapegroping() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 3 3 3",
+                "group g1 r1 c1",
+                "list g1",
+                "undo",
+                "list g1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Group g1 has been created."));
+        assertTrue(out.contains("Group shape :g1"));
+        assertTrue(out.contains("\tRectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("\tCircle c1 x:3.00 y:3.00 radius:3.00"));
+        assertTrue(out.contains("Group g1 has been ungrouped."));
+        assertTrue(out.contains("Shape g1 is not found."));
+    }
+
+    @Test
+    public void testredoshapegroping() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 3 3 3",
+                "group g1 r1 c1",
+                "undo",
+                "redo",
+                "list g1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Group g1 has been created."));
+        assertTrue(out.contains("Group g1 has been ungrouped."));
+        assertTrue(out.contains("Group g1 has been regrouped."));
+        assertTrue(out.contains("Group shape :g1"));
+        assertTrue(out.contains("\tRectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("\tCircle c1 x:3.00 y:3.00 radius:3.00"));
+    }
+
+    @Test
+    public void testundoshapeungroping() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 3 3 3",
+                "group g1 r1 c1",
+                "ungroup g1",
+                "undo",
+                "list g1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Group g1 has been created."));
+        assertTrue(out.contains("Group g1 has been ungrouped."));
+        assertTrue(out.contains("Group g1 has been regrouped."));
+        assertTrue(out.contains("Group shape :g1"));
+        assertTrue(out.contains("\tRectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("\tCircle c1 x:3.00 y:3.00 radius:3.00"));
+    }
+
+    @Test
+    public void testredoshapeungroping() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 3 3 3",
+                "group g1 r1 c1",
+                "ungroup g1",
+                "undo",
+                "redo",
+                "list g1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Group g1 has been created."));
+        assertTrue(out.contains("Group g1 has been ungrouped."));
+        assertTrue(out.contains("Group g1 has been regrouped."));
+        assertTrue(out.contains("Shape g1 is not found."));
+    }
+
+    @Test
+    public void testundomoveshape() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "move r1 1 1",
+                "list r1",
+                "undo",
+                "list r1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Shape r1 is moved to (1.00,1.00)"));
+        assertTrue(out.contains("Rectangle r1 x:1.00 y:1.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("r1 has moved back to (0.0,0.0)"));
+        assertTrue(out.contains("Rectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
+    }
+
+    @Test
+    public void testredomoveshape() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "move r1 1 1",
+                "undo",
+                "list r1",
+                "redo",
+                "list r1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Shape r1 is moved to (1.00,1.00)"));
+        assertTrue(out.contains("r1 has moved back to (0.0,0.0)"));
+        assertTrue(out.contains("Rectangle r1 x:0.00 y:0.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("Shape r1 is moved to (1.00,1.00)"));
+        assertTrue(out.contains("Rectangle r1 x:1.00 y:1.00 width:5.00 height:5.00"));
+    }
+
+    @Test
+    public void testundomovegroupshape() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 1 1 2",
+                "group g1 r1 c1",
+                "boundingBox g1",
+                "move g1 1 1",
+                "boundingBox g1",
+                "undo",
+                "boundingBox g1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Group g1 has been created."));
+        assertTrue(out.contains("Bounding Box: x:-1.00 y:-1.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("Shape g1 is moved to (0.00,0.00)."));
+        assertTrue(out.contains("Bounding Box: x:0.00 y:0.00 width:5.00 height:5.00"));
+        assertTrue(out.contains("g1 has moved back to (-1.0,-1.0)"));
+        assertTrue(out.contains("Bounding Box: x:-1.00 y:-1.00 width:5.00 height:5.00"));
+    }
+
+    @Test
+    public void testredomovegroupshape() throws Exception {
+        String input = String.join("\n", Arrays.asList(
+                "rectangle r1 0 0 5 5",
+                "circle c1 1 1 2",
+                "group g1 r1 c1",
+                "move g1 1 1",
+                "undo",
+                "redo",
+                "boundingBox g1",
+                "quit"
+        )) + "\n";
+        String out = runClevisWithInput(input);
+
+        assertTrue(out.contains("Group g1 has been created."));
+        assertTrue(out.contains("Shape g1 is moved to (0.00,0.00)."));
+        assertTrue(out.contains("g1 has moved back to (-1.0,-1.0)"));
+        assertTrue(out.contains("Shape g1 is moved to (0.00,0.00)."));
+        assertTrue(out.contains("Bounding Box: x:0.00 y:0.00 width:5.00 height:5.00"));
+    }
 }
+
+

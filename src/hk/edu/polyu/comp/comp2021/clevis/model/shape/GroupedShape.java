@@ -1,10 +1,10 @@
-package hk.edu.polyu.comp.comp2021.clevis.model;
+package hk.edu.polyu.comp.comp2021.clevis.model.shape;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class GroupedShape extends Shape{
-    List<Shape> group;
+public class GroupedShape extends Shape {
+    private List<Shape> group;
     public GroupedShape(String n) {
         super(n);
         this.group = new ArrayList<>();
@@ -25,10 +25,12 @@ class GroupedShape extends Shape{
         return this.boundingbox[1];
     }
 
+    public List<Shape> getGroup() {
+        return group;
+    }
 
     public void list(){
         System.out.println("Group shape :" + name);
-
 
         for (Shape shape : group) {
             System.out.print("\t");
@@ -40,11 +42,10 @@ class GroupedShape extends Shape{
             e.move(dx, dy);
         }
     }
-
-
     public void boundingbox(){
         initboundingbox();
-        System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height" + String.format("%.2f", boundingbox[0]));
+
+        System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height:" + String.format("%.2f", boundingbox[3]));
     }
 
     public void initboundingbox() {

@@ -1,6 +1,6 @@
-package hk.edu.polyu.comp.comp2021.clevis.model;
+package hk.edu.polyu.comp.comp2021.clevis.model.shape;
 
-class Circle extends Shape {
+public class Circle extends Shape {
     double x, y, r;
     public final static int EXPECTED_VALUES = 3;
 
@@ -23,7 +23,7 @@ class Circle extends Shape {
         this.y += dy;
     }
     public void list() {
-        System.out.println("Circle " + this.name + " x:" + x + " y:" + y + " radius:" + r);
+        System.out.println("Circle " + this.name + " x:" + String.format("%.2f",x) + " y:" + String.format("%.2f",y) + " radius:" + String.format("%.2f",r));
     }
     public void initboundingbox(){
         super.boundingbox(x-r,y-r,2*r,2*r);
@@ -31,4 +31,8 @@ class Circle extends Shape {
     public void boundingbox() {
         initboundingbox();
         System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height" + String.format("%.2f", boundingbox[3]));        }
+
+    public double getRadius() {
+        return this.r;
+    }
 }

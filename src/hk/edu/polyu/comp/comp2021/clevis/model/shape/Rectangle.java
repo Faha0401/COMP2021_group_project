@@ -1,6 +1,6 @@
-package hk.edu.polyu.comp.comp2021.clevis.model;
+package hk.edu.polyu.comp.comp2021.clevis.model.shape;
 
-class Rectangle extends Shape {
+public class Rectangle extends Shape {
     double x, y, width, height;
     public final static int EXPECTED_VALUES = 4;
 
@@ -24,7 +24,7 @@ class Rectangle extends Shape {
         this.y += dy;
     }
     public void list() {
-        System.out.println("Rectangle " + this.name + " x:" + x + " y:" + y + " width:" + width + " height:" + height);
+        System.out.println("Rectangle " + this.name + " x:" + String.format("%.2f",x) + " y:" + String.format("%.2f",y) + " width:" + String.format("%.2f",width) + " height:" + String.format("%.2f",height));
     }
     public void initboundingbox(){
         super.boundingbox(x,y,width,height);
@@ -32,5 +32,13 @@ class Rectangle extends Shape {
     public void boundingbox() {
         initboundingbox();
         System.out.println("Bounding Box: x:" + String.format("%.2f", boundingbox[0]) + " y:" + String.format("%.2f", boundingbox[1]) + " width:"+ String.format("%.2f", boundingbox[2]) + " height" + String.format("%.2f", boundingbox[3]));
+    }
+
+    public double getWidth() {
+        return this.width;
+    }
+
+    public double getHeight() {
+        return this.height;
     }
 }

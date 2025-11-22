@@ -1,14 +1,26 @@
-package hk.edu.polyu.comp.comp2021.clevis.model;
+package hk.edu.polyu.comp.comp2021.clevis.model.shape;
 
-abstract class Shape {
-    String name;
-    int zIndex;
-    double[] boundingbox = new double[4];
-    static int zCount = 0;
+public abstract class Shape {
+    protected String name;
+    protected double[] boundingbox = new double[4];
+    private int zIndex;
+    private static int zCount = 0;
 
     Shape(String name) {
         this.name = name;
         zIndex = zCount++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getzIndex() {
+        return zIndex;
+    }
+
+    public double[] getBoundingbox() {
+        return boundingbox;
     }
 
     public abstract void list();
