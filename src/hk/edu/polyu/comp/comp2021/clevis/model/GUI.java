@@ -52,9 +52,9 @@ public class GUI extends JFrame {
 
         ActionListener executeCommand = e -> {
             String command = commandField.getText().trim();
+            clevis.executeCommand(command);
+            commandField.setText("");
             if (!command.isEmpty()) {
-                clevis.executeCommand(command);
-                commandField.setText("");
                 drawingPanel.repaint();
             }
         };
@@ -109,13 +109,15 @@ public class GUI extends JFrame {
         }
 
         private double[] computeWorldBounds(List<Shape> shapes) {
-            double[] bounds = new double[]{Double.MAX_VALUE, Double.MAX_VALUE, Double.MIN_VALUE, Double.MIN_VALUE};
+            double[] bounds = new double[]{Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY};
             for (Shape s : shapes) {
                 s.computeWorldBounds(bounds);
             }
-            if (bounds[2] == Double.POSITIVE_INFINITY) {
-                bounds[2] = bounds[3] = 0;
-                bounds[0] = bounds[1] = 1;
+            if (bounds[0] == Double.POSITIVE_INFINITY || bounds[0] > bounds[2]){
+                bounds[0] = 1;
+                bounds[1] = 1;
+                bounds[2] = 0;
+                bounds[3] = 0;
             }
             return bounds;
         }
