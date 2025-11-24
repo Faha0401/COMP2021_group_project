@@ -41,7 +41,6 @@ public class Clevis {
                 logger.logCommand(commandIndex, line);
                 String[] parts = line.trim().split("\\s+");
                 if (parts.length == 0) continue;
-//                CommandParser.parseAndExecute(line, index, shapes, quitFlag, Bin, undo, redo, undocoord, redocoord);
                 CommandParser commandParser = new CommandParser(this);
                 commandParser.parseAndExecute(line);
                 if (quitFlag) break;
